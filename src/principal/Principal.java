@@ -1,5 +1,9 @@
 package principal;
 
+import java.util.List;
+import leerdatos.ObtenerDatos;
+import escribirdatos.GuardarDatos;
+import escribirdatos.GuardarDatos2;
 import modelo.conserje;
 import modelo.funcionario;
 import modelo.trabajador;
@@ -21,6 +25,23 @@ public class Principal {
         System.out.println("Sueldo t1: " + t1.sueldo());
         System.out.println(t2);
         System.out.println("Sueldo t2: " + t2.sueldo());
+        
+        List<trabajador> trabajadores_al = ObtenerDatos.LeerArchivoCsv();
+        for(trabajador t: trabajadores_al)
+            if(t instanceof conserje) {
+                System.out.println(t.getNombre() + " " + t.getApellido() + " " + ((conserje ) t).sueldo());
+                
+                String cadenac = t.getNombre() + " " + t.getApellido() + ", ";
+                GuardarDatos.guardarArchivoCsv(cadenac);
+            }else {
+                System.out.println(t.getNombre() + " " + t.getApellido() + " " + ((funcionario ) t).sueldo());
+                String cadenaf = t.getNombre() + " " + t.getApellido() + ", ";
+                GuardarDatos2.guardarArchivo2Csv(cadenaf);
+                
+                //guardar resultado en un archivo
+               //String cadena = nombre+";"+apellido+";"+tipo+";"+maximo;
+                //GuardarDatos.guardarArchivoCsv(cadena);
+            }
     }
 
 }

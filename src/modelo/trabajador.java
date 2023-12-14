@@ -66,4 +66,8 @@ public class trabajador {
     public String toString() {
         return "trabajador{" + "idTrabajador=" + idTrabajador + ", Nombre=" + Nombre + ", Apellido=" + Apellido + ", Antiguedad=" + Antiguedad + ", HorasTrabajadas=" + HorasTrabajadas + '}';
     }
+
+    public double sueldo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
